@@ -1,0 +1,25 @@
+.user-form-wrap {
+  background-color: #f5fffa;
+  padding: 3px;
+  height: 100vh;
+}
+
+.user-form {
+  display: flex;
+  background-color: #b0e0e6;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 400px;
+  min-height: 300px;
+  align-items: center;
+  border: solid 2px #000;
+  margin: 20px auto;
+}
+
+.btn-submit {
+  font-size: medium;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #daa520;
+}
