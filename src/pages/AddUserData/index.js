@@ -1,11 +1,15 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { setUserAction } from './../../redux/actionTypes';
+import { useSelector } from 'react-redux';
 
 import Fields from './../../components/form/Fields';
 import './AddUserData.scss';
 
 const AddUserData = (props) => {
+  const { user } = useSelector((state) => state);
+  console.log(user);
   const { handleSubmit } = props;
 
   return (
@@ -25,13 +29,21 @@ const AddUserData = (props) => {
 };
 
 const onSubmit = (values, dispatch, props) => {
-  console.log(values);
+  localStorage.setItem('userData', JSON.stringify(values));
+  props.addUserData(values);
 };
 
 const mapStateToProps = (state) => ({
   initialValues: state.user,
 });
 
-export default connect(mapStateToProps)(
-  reduxForm({ form: 'userData', onSubmit })(AddUserData),
-);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addUserData: (values) => dispatch(setUserAction(values)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(reduxForm({ form: 'userData', onSubmit })(AddUserData));

@@ -11,8 +11,8 @@ const renderField = (props) => {
     meta: { touched, error },
   } = props;
   return (
-    <div className='form-field'>
-      <label>{label}</label>
+    <div className='field'>
+      <label className='field__label'>{label}</label>
       <div>
         <input
           {...input}
@@ -20,8 +20,8 @@ const renderField = (props) => {
           maxLength={maxLength}
           inputMode={inputMode}
         />
-        {touched && error && <span>{error}</span>}
       </div>
+      {touched && error && <span className='field__error'>{error}</span>}
     </div>
   );
 };

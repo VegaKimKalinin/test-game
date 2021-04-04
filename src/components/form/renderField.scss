@@ -1,3 +1,10 @@
-.form-field {
+.field {
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
+  max-width: 150px;
+}
+
+.field__error {
+  color: red;
 }

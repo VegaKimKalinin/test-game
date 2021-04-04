@@ -1,0 +1,13 @@
+.battle-field {
+  display: flex;
+  justify-content: space-between;
+  background-color: green;
+  height: 100vh;
+  align-items: flex-end;
+}
+
+.shooter {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}

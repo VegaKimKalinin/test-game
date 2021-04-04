@@ -1,5 +1,5 @@
 import renderField from './renderField';
-import { required } from './../../functions/validate';
+import { required, requiredNumber } from './../../functions/validate';
 import { positiveNumbers } from './../../functions/parse';
 const Fields = {
   userName: {
@@ -16,7 +16,9 @@ const Fields = {
     component: renderField,
     label: 'Сила',
     maxLength: 2,
+    parse: positiveNumbers,
     inputMode: 'numeric',
+    validate: [requiredNumber],
   },
   agility: {
     name: 'agility',
@@ -26,6 +28,7 @@ const Fields = {
     parse: positiveNumbers,
     maxLength: 2,
     inputMode: 'numeric',
+    validate: [requiredNumber],
   },
   intelligence: {
     name: 'intelligence',
@@ -35,6 +38,7 @@ const Fields = {
     parse: positiveNumbers,
     maxLength: 2,
     inputMode: 'numeric',
+    validate: [requiredNumber],
   },
   charisma: {
     name: 'charisma',
@@ -44,6 +48,7 @@ const Fields = {
     parse: positiveNumbers,
     maxLength: 2,
     inputMode: 'numeric',
+    validate: [requiredNumber],
   },
 };
 
