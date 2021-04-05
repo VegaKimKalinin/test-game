@@ -29,8 +29,15 @@ const AddUserData = (props) => {
 };
 
 const onSubmit = (values, dispatch, props) => {
-  localStorage.setItem('userData', JSON.stringify(values));
-  props.addUserData(values);
+  const { history, addUserData } = props;
+  const userData = {
+    ...values,
+    evasion: 10 + +values.agility,
+    energy: values.agility * 1 + values.intelligence * 1,
+  };
+  localStorage.setItem('userData', JSON.stringify(userData));
+  addUserData(userData);
+  history.push('/game');
 };
 
 const mapStateToProps = (state) => ({
